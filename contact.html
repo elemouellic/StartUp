@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/nivo-slider.css" />
+    <link rel="stylesheet" href="/themes/default/default.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    
+    <title>Startup</title>
+  </head>
+  <body>
+    <header id="banner">
+      <div class="container flex-banner">
+        <a href="index.html">
+          <img src="images-startup/logo.png" alt="logo startup" />
+        </a>
+        <div id="menuBurger">
+          <i class="fas fa-bars"></i> <!-- Icône de menu burger de Font Awesome -->
+        </div>
+        <nav id="menu">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">A&nbsp;propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="products.html">Produits</a></li>
+            <li><a class="choice" href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div> 
+    </header>
+
+
+<main id="content">
+
+    <div id="containercontact" class="container">
+
+
+    <section id="findus">
+        <h2>How to Find Us</h2>
+        <iframe class="map" width="1200" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.7772772312164307%2C47.64650027030811%2C-2.76831865310669%2C47.64966605912981&amp;layer=mapnik"></iframe>
+
+        <h3 class="findustitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea voluptates, rem commodi non, repudiandae consequuntur hic nisi odit itaque fugit corporis omnis illo minima dignissimos excepturi delectus culpa facilis a.</h3>
+
+        <p class="findusparagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nemo voluptates dolorum dolores aliquam laborum a tenetur dolorem beatae quasi, eos, et facilis officiis mollitia molestiae? Quis veritatis et nihil?
+        Eligendi nam beatae suscipit accusantium? Expedita ad adipisci et quasi repellat. Debitis molestiae natus, odit maiores voluptatibus unde fugit corporis quis consequuntur, ut sint? Incidunt provident facere obcaecati laboriosam natus.</p>
+
+
+    </section>
+
+    <section id="contact">
+        <h2>Contact form</h2>
+        <form class="contact-form">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Nom" required>
+        
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="Téléphone" required>
+        
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="10" placeholder="Message" required></textarea>
+            <div class="buttongroup">
+            <button type="reset" class="custom-button">Effacer</button>
+            <button type="submit" class="custom-button">Envoyer</button>
+
+            </div>
+
+
+            
+            
+        </form>
+    </section>
+
+</div>
+
+</main>
+
+
+
+
+    <footer id="footerpage" class="container">
+
+    </div>
+      <div class="copyright">
+        <p>&copy;2021 Start-Up</p>
+        <p>by GRETA BRETAGNE SUD</p>
+      </div>
+      <div class="networks">
+        <p>Nous suivre</p>
+        <a href=""><img src="/images-startup/icon-1.jpg" alt="twitter"></a>
+        <a href=""><img src="/images-startup/icon-2.jpg" alt="facebook"></a>
+        <a href=""><img src="/images-startup/icon-3.jpg" alt="google"></a>
+      </div>
+    </footer>
+
+         <!-- JAVA SRIPT MENU BURGER  -->
+
+    <script>
+      // Récupérez le menu burger et la navigation
+      const menuBurger = document.getElementById("menuBurger");
+      const menuPrincipal = document.getElementById("menu");
+
+      // Ajoutez un gestionnaire d'événement pour le clic sur le menu burger
+      menuBurger.addEventListener("click", function () {
+          // Basculez la classe "active" pour afficher ou masquer le menu
+          if (menuPrincipal.classList.contains("active")) {
+              menuPrincipal.classList.remove("active");
+          } else {
+              menuPrincipal.classList.add("active");
+          }
+      });
+
+  </script>
+  </body>
+</html>

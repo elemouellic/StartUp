@@ -1,0 +1,876 @@
+/* Box sizing border-box reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margin and padding */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Reset headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Reset lists */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset anchors */
+a {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Reset form elements */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Reset images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* lato-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Lato-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/lato-v24-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lato-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Lato-Italic";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/lato-v24-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* bilbo-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Bilbo";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/bilbo-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Variables */
+* {
+  --latoRegular: "Lato-Regular";
+  --latoItalic: "Lato-Italic";
+  --bilbo: "Bilbo";
+  --weightTitle: 500;
+
+  --defaultFontSize: 1rem;
+  --menuFontSize: 1.5rem;
+  --mainTitleFontSize: 2.8rem;
+  --secondTitleFontSize: 2rem;
+  --calendarFontSize: 1.2rem;
+  --customButtonFontSize: 2rem;
+
+  --defaultFontStyle: italic;
+
+  --bodyTextColor: #484848;
+  --hilightTextColor: #f48c05;
+  --lightTextColor: #ffffff;
+  --customButtonTextColor: #18191b;
+
+  --backgroundBody: #f2f2f2;
+
+  --backgroundHeader: #18191b;
+  --backgroundLight: #eeeeee;
+}
+
+/* Styles définis */
+body {
+  font-family: var(--latoRegular);
+  font-style: italic;
+  font-size: var(--defaultFontSize);
+  color: var(--bodyTextColor);
+  background-color: var(--backgroundBody);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--bilbo);
+  font-weight: var(--graisseTitre);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: var(--mainTitleFontSize);
+}
+
+h2 {
+  font-size: var(--secondTitleFontSize);
+}
+
+h3 {
+  font-size: var(--menuFontSize);
+  color: var(--hilightTextColor);
+  font-style: italic;
+  font-weight: 200;
+  margin: 10px 0;
+}
+
+.container {
+  max-width: 1130px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hilight {
+  color: var(--hilightTextColor);
+}
+
+.boutonplus {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.boutonplus > a:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  color: var(--backgroundHeader);
+  /* border: none; */
+  /* padding: 10px 20px; */
+  /* border-radius: 4px; */
+  cursor: pointer;
+  /* position: relative; */
+  font-family: var(--bilbo);
+  font-size: var(--secondTitleFontSize);
+  /* width: fit-content; */
+  /* margin: auto; */
+}
+
+.custom-button:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.custom-button::before {
+  content: url(/images-startup/button.png); /* Image à gauche du texte */
+  margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+/********************************************************************/
+/****************************** Header ******************************/
+/********************************************************************/
+#banner {
+  background-color: var(--backgroundHeader);
+}
+
+#banner .flex-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#banner #menuBurger {
+  display: none;
+  /* Par défaut, le menu burger est caché */
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#banner #menuBurger .fa,
+.fas {
+  font-weight: 600;
+  color: white;
+  font-size: 25px;
+}
+
+#banner #menu ul {
+  display: flex;
+}
+
+#banner #menu ul li {
+  margin-right: 15px;
+}
+
+#banner #menu ul li:last-child {
+  margin-right: 0px;
+}
+#banner #menu ul li a {
+  font-family: "Bilbo";
+  color: var(--lightTextColor);
+  font-size: 1.5rem;
+}
+
+#banner #menu ul li a:hover,
+#banner #menu ul li a.choice {
+  color: var(--hilightTextColor);
+}
+/********************************************************************/
+/****************************** Slider ******************************/
+/********************************************************************/
+.slider-wrapper {
+  position: relative;
+}
+
+.nivo-caption {
+  background-color: transparent;
+  color: #000000;
+  top: 25%;
+  left: 75%;
+  width: 30%;
+}
+
+.nivo-controlNav {
+  position: absolute;
+  bottom: 100px;
+  right: 200px;
+  z-index: 99999;
+}
+
+.theme-default .nivo-controlNav a {
+  width: 50px;
+  height: 50px;
+  background-position: -34px 0px;
+}
+
+.theme-default .nivo-controlNav a.active {
+  width: 50px;
+  height: 50px;
+  background-position: 10px 0px;
+}
+
+/********************************************************************/
+/****************************** Footer ******************************/
+/********************************************************************/
+
+#footerpage {
+  display: flex;
+  padding: 30px 0;
+}
+
+#footerpage .copyright {
+  width: 50%;
+}
+
+#footerpage .networks {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+#footerpage .networks a {
+  padding-left: 10px;
+}
+
+#footerpage .networks a:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+#footerpage .copyright a {
+  display: block;
+}
+
+/********************************************************************/
+/****************************** Index *******************************/
+/********************************************************************/
+
+/********** Bloc à propos **********/
+
+#about {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 0;
+}
+
+#about .presentation {
+  display: flex;
+  width: 40%;
+}
+
+#about .presentation img {
+  width: 25%;
+  height: fit-content;
+}
+
+#about .presentation .textabout {
+  width: 75%;
+}
+
+/********** Bloc Bienvenue **********/
+
+#welcome {
+  border-top: 5px dashed var(--bodyTextColor);
+  border-bottom: 5px dashed var(--bodyTextColor);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: white;
+}
+
+#welcome small {
+  font-family: var(--latoRegular);
+  font-style: italic;
+  font-size: var(--defaultFontSize);
+}
+
+/********** Idées et news **********/
+
+#ideanews {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+#ideas h2,
+#news h2,
+#findus h2,
+#contact h2 {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#ideas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 65%;
+}
+
+#ideas .idea {
+  position: relative;
+  width: 30%;
+}
+
+#ideas .idea img {
+  display: block;
+  width: 87%;
+  height: auto;
+  margin: auto;
+  border: 8px solid var(--lightTextColor);
+  object-fit: contain;
+}
+
+#news {
+  width: 30%;
+}
+
+#news .lastnews {
+  width: 100%;
+}
+
+#news .lastnews .calendar {
+  position: relative;
+  background-image: url(/images-startup/date.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50px;
+  font-family: var(--bilbo);
+  font-size: var(--secondTitleFontSize);
+  font-weight: bold;
+}
+
+#news .lastnews .calendar p {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+}
+
+#news .lastnews .calendar p > span {
+  font-family: var(--latoRegular);
+  font-size: var(--calendarFontSize);
+}
+
+/***********************************************************************/
+/****************************** A propos *******************************/
+/***********************************************************************/
+
+#aboutsection {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#aboutsection .ourstartup {
+  position: relative;
+  width: 65%;
+  min-height: 450px;
+}
+
+#aboutsection .ourstartup h2 {
+  padding-bottom: 40px;
+}
+
+#aboutsection .ourstartup .aboutgraffiti {
+  float: left;
+  width: 30%;
+  border: 8px solid white;
+  margin-right: 10px;
+}
+
+#aboutsection .ourstartup p {
+  width: 100%;
+  line-height: 30px;
+  padding-right: 20px;
+}
+
+#aboutsection .ourcreativeteam {
+  position: relative;
+  width: 35%;
+  min-height: 450px;
+}
+
+#aboutsection .ourcreativeteam .staffpresentation {
+  margin: 30px 0;
+}
+
+#aboutsection .ourcreativeteam .aboutstaff {
+  float: left;
+  width: 22%;
+  border: 8px solid white;
+  margin-right: 10px;
+}
+
+/* Comportement spécial du bouton */
+#aboutsection .boutonplus {
+  position: absolute;
+  bottom: 0;
+}
+
+#aboutsection .boutonplus a {
+  margin-top: 30px;
+}
+
+#skillsandwhy {
+  display: flex;
+}
+
+#skillsandwhy .ourskills {
+  width: 65%;
+  padding-right: 50px;
+}
+
+#skillsandwhy .whyus {
+  width: 35%;
+}
+
+#skillsandwhy .whyus ul > li {
+  margin-bottom: 10px;
+}
+
+#skillsandwhy .whyus ul > li::before {
+  content: url(/images-startup/marker.png);
+}
+
+/***********************************************************************/
+/****************************** Services *******************************/
+/***********************************************************************/
+
+#productsection .product {
+  background: linear-gradient(to bottom, transparent, var(--backgroundLight));
+}
+
+#productsection .product img {
+  border: 8px solid var(--lightTextColor);
+}
+
+#productsection {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(340px, 1fr)
+  ); /* Utilisation d'auto-fill et minmax */
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 50px;
+}
+
+.skillsgrid {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(340px, 1fr)
+  ); /* Utilisation d'auto-fill et minmax */
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 50px;
+}
+
+/***********************************************************************/
+/****************************** Produits *******************************/
+/***********************************************************************/
+
+.products {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(340px, 1fr)
+  ); /* Utilisation d'auto-fill et minmax */
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 50px;
+}
+
+.product {
+  background-color: var(--backgroundLight);
+  height: fit-content;
+  max-width: 285px;
+  margin: auto;
+}
+.product > img {
+  margin: auto;
+}
+
+.product > h3,
+.product > p {
+  margin: auto;
+  padding: 20px;
+}
+
+/***********************************************************************/
+/****************************** Contact ********************************/
+/***********************************************************************/
+
+#containercontact {
+  display: flex;
+}
+
+#findus {
+  width: 60%;
+}
+
+#findus .map {
+  max-width: 100%;
+  border: 8px solid white;
+}
+
+#findus .findustitle {
+  margin-top: 10px;
+}
+
+#findus .findusparagraph {
+  margin-top: 10px;
+}
+
+#contact {
+  width: 30%;
+}
+
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#findus h2,
+#contact h2 {
+  padding: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  font-family: inherit;
+  width: 100%;
+  margin: 0 10px;
+  padding: 10px;
+  border: 1px solid var(--lightTextColor);
+  border-radius: 4px;
+  margin-bottom: 25px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+#contact .contact-form label {
+  display: none;
+}
+.buttongroup {
+  display: flex;
+}
+
+.buttongroup .custom-button {
+  margin: auto;
+}
+
+/***********************************************************************/
+/****************************** Responsive *****************************/
+/***********************************************************************/
+
+@media screen and (max-width: 768px) {
+  /***********************************************************************/
+  /****************************** Index **********************************/
+  /***********************************************************************/
+
+  #banner #menu ul {
+    display: none;
+    width: 100%;
+  }
+
+  #banner #menu.active ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #banner #menuBurger {
+    display: block;
+  }
+
+  .flex-banner {
+    flex-direction: column;
+  }
+
+  /* Slider */
+  .slider-wrapper {
+    display: none;
+  }
+
+  /* .ideas{
+    width: 100%;
+  } */
+
+  #about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #about .presentation {
+    width: 80%;
+  }
+
+  #welcome.container {
+    width: 80%;
+  }
+
+  #ideanews {
+    flex-wrap: wrap;
+  }
+  #ideas,
+  #news {
+    width: 90%;
+    margin: auto;
+  }
+
+  /***********************************************************************/
+  /****************************** A propos *******************************/
+  /***********************************************************************/
+
+  #aboutsection {
+    flex-wrap: wrap;
+  }
+
+  #aboutsection .ourstartup {
+    width: 80%;
+    margin: auto;
+  }
+
+  #aboutsection .ourstartup .aboutgraffiti {
+    width: 50%;
+  }
+  
+  #aboutsection .ourcreativeteam {
+    width: 80%;
+    margin: auto;
+  }
+
+  #aboutsection .boutonplus {
+    position: inherit;
+  }
+
+  .ourcreativeteam {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #skillsandwhy {
+    flex-direction: column;
+  }
+
+  #skillsandwhy .ourskills {
+    width: 80%;
+    margin: auto;
+  }
+
+  #skillsandwhy .whyus {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  /***********************************************************************/
+  /****************************** Services ********************************/
+  /***********************************************************************/
+
+  #skillssect > h2 {
+    width: 80%;
+    margin: auto;
+  }
+
+  #skilllsect > .custom-button {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .skillsgrid {
+    width: 80%;
+    margin: auto;
+  }
+
+  /***********************************************************************/
+  /****************************** Contact ********************************/
+  /***********************************************************************/
+
+  #contact,
+  #findus {
+    width: 80%;
+    margin: auto;
+  }
+
+  #ideas h2,
+  #news h2,
+  #findus h2,
+  #contact h2,
+  #aboutsection h2 {
+    width: 95%;
+  }
+  p.boutonplus {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 15px auto;
+  }
+
+  #footerpage {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #footerpage .copyright p {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #footerpage .networks {
+    justify-content: center;
+  }
+
+  #containercontact {
+    flex-direction: column-reverse;
+  }
+
+  #findus h2,
+  #contact h2 {
+    text-align: center;
+  }
+}
